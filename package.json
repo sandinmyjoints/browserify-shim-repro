@@ -4,7 +4,9 @@
   "description": "",
   "main": "entry.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle:norequire": "browserify -e entry.js -o bundle.js && node bundle.js",
+    "bundle:require": "browserify -r 'needsShimName' -e entry.js -o bundle.js && node bundle.js"
   },
   "author": "William Bert <william.bert@gmail.com>",
   "license": "ISC",
@@ -17,8 +19,11 @@
       "browserify-shim"
     ]
   },
+  "browser": {
+    "needsShimName": "./needs-shim.js"
+  },
   "browserify-shim": {
-    "./needs-shim.js": {
+    "needsShimName": {
       "exports": "needsShim"
     }
   }
