@@ -5,4 +5,4 @@ Available scripts:
     bundle:require
       browserify -r 'needsShimName' -e entry.js -o bundle.js && node bundle.js
 
-`bundle:norequire` works. `bundle:require` does not.
+**`bundle:norequire` works. `bundle:require` does not.**
